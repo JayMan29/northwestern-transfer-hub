@@ -1,5 +1,6 @@
 import {stages,owners,services,facilities,makeRequests,filterRequests,metrics,nextAction,advanceRequest} from './data.js';
 const app=document.querySelector('#app');
+document.querySelector('.skip').addEventListener('click',e=>{e.preventDefault();const main=document.querySelector('#main');main?.focus();main?.scrollIntoView();});
 let requests=makeRequests(),selected='TC-1042',query='',stage='all',priority='all',attention=false,page=0;
 const size=7;
 const paths={grid:'M3 3h7v7H3z M14 3h7v7h-7z M3 14h7v7H3z M14 14h7v7h-7z',plus:'M12 5v14 M5 12h14',bed:'M3 18V8 M3 14h18v4 M7 14V8h11a3 3 0 0 1 3 3v3 M3 10h4',chat:'M21 11a8 8 0 0 1-8 8H6l-4 3V11a9 9 0 0 1 19 0z M7 10h10 M7 14h6',chart:'M4 3v17h17 M9 16v-5 M14 16V6 M19 16V9',arrow:'M5 12h14 M13 6l6 6-6 6',search:'M21 21l-5-5 M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0',clock:'M12 8v5l3 2 M22 12a10 10 0 1 1-20 0 10 10 0 0 1 20 0',truck:'M3 6h12v11H3z M15 10h4l3 4v3h-7 M8 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0 M21 18a2 2 0 1 1-4 0 2 2 0 0 1 4 0',shield:'M12 3l8 3v6c0 5-8 9-8 9s-8-4-8-9V6z M12 8v5 M12 16v1',link:'M9 15l6-6 M8 17l-2 2a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0 M16 7l2-2a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0'};
